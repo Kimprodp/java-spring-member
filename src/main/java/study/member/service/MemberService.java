@@ -2,10 +2,11 @@ package study.member.service;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.stereotype.Service;
 import study.member.domain.Member;
 import study.member.repository.MemberRepository;
-import study.member.repository.MemoryMemberRepository;
 
+@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
