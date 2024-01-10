@@ -1,12 +1,12 @@
 package study.member.service;
 
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.stereotype.Service;
 import study.member.domain.Member;
 import study.member.repository.MemberRepository;
 
-@Service
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;

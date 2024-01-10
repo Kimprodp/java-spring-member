@@ -1,9 +1,11 @@
 package study.member;
 
+import jakarta.persistence.EntityManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import study.member.repository.JpaMemberRepository;
 import study.member.repository.MemberRepository;
-import study.member.repository.MemoryMemberRepository;
 import study.member.service.MemberService;
 
 /**
@@ -13,6 +15,13 @@ import study.member.service.MemberService;
 @Configuration
 public class SpringConfig {
 
+    private EntityManager em;
+
+    @Autowired
+    public SpringConfig(EntityManager em) {
+        this.em = em;
+    }
+
     @Bean
     public MemberService memberService() {
         return new MemberService(memberRepository());
@@ -20,6 +29,6 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
+        return new JpaMemberRepository(em);
     }
 }
