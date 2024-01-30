@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Member {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) // generatedValue : ID값을 자동 생성해주는 어노테이션
     private Long id;
     private String name;
 
